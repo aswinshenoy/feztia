@@ -1,0 +1,6 @@
+[
+  { "label":  "Male", "value":  "Male" },
+  { "label":  "Female", "value": "Female" },
+  { "label":  "Other", "value":  "Other" },
+  { "label":  "Prefer not to say", "value":  null }
+]

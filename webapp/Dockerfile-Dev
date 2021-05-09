@@ -1,0 +1,14 @@
+FROM node:alpine
+
+RUN apk add build-base zlib-dev autoconf automake nasm libtool libpng-dev jpeg-dev g++ gcc libgcc libstdc++ linux-headers make python3
+
+RUN mkdir /app
+COPY . /app
+
+RUN npm cache clean --force
+COPY package.json /app/package.json
+RUN cd /app; npm install --loglevel verbose --legacy-peer-deps
+
+COPY . /app
+
+WORKDIR ./app

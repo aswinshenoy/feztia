@@ -1,0 +1,44 @@
+{
+  "name": "Biocrest",
+  "short_name": "Biocrest",
+  "description": "BIOCREST 2021 - An International Symposium on Antimicrobial Resistance organized by Amrita Vishwa Vidyapeetam.",
+  "theme_color": "#AF0C3E",
+  "background_color": "#AF0C3E",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "en-US",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "images/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

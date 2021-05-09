@@ -1,0 +1,75 @@
+{
+  "GRAPHQL_SERVER_ENDPOINT": "/api/graphql/",
+  "eventID": 1,
+  "eventName": "Biocrest",
+  "theme": {
+    "colors": {
+      "primary": "#AF0C3E",
+      "primaryInv": "white"
+    }
+  },
+  "features": {
+    "team": {
+      "createTeam": true,
+      "joinTeam": true
+    },
+    "competition": {
+      "showSubmissions": true
+    },
+    "webinar": true,
+    "feed": true,
+    "profile": {
+      "registrationStatus": {
+        "IDCard": {
+          "showQR": true,
+          "showType": true
+        }
+      },
+      "myRegistrations": {
+        "showEditButton": true
+      }
+    },
+    "dashboard": {
+      "liveEvents": {
+        "type": 3
+      },
+      "nextEvents": {
+        "type": 3
+      }
+    }
+  },
+  "SEOTags": {
+    "siteName": "BIOCREST 2021",
+    "tagLine": "International Symposium on Antimicrobial Resistance",
+    "description": "BIOCREST 2021 - An International Symposium on Antimicrobial Resistance organized by Amrita Vishwa Vidyapeetam. Register Today, limited seats available."
+  },
+  "links": {
+    "organizerURL": "https://amrita.edu/biocrest",
+    "headerLinks": [
+      {
+        "label": "Main Website",
+        "url": "https://amrita.edu/biocrest"
+      },
+      {
+        "label": "About",
+        "url": "https://www.amrita.edu/biocrest/the-symposia/"
+      },
+      {
+        "label": "Blog",
+        "url": "https://www.amrita.edu/biocrest/blog/"
+      }
+    ]
+  },
+  "analytics": {
+    "googleAnalyticsIDs": [
+      "G-5EB35ZCBPT", "AW-575223435"
+    ],
+    "FacebookPixelIDs": [
+      "611496592837729"
+    ]
+  },
+  "labels": {
+    "organizerName": "Amrita Vishwa Vidyapeetham",
+    "copyrightHolder": "Amrita Vishwa Vidyapeetham"
+  }
+}

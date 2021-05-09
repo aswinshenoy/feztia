@@ -1,0 +1,5 @@
+[
+  { "label":  "Student", "value":  1 },
+  { "label":  "Academician", "value": 2 },
+  { "label":  "Industry", "value":  3 }
+]

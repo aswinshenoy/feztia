@@ -1,0 +1,21 @@
+html {
+    font-size: 13px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif!important;
+    background: #eee;
+}
+
+a {
+    color: #D00846!important;
+}
+
+.plain-link {
+    text-decoration: none!important;
+    color: inherit!important;
+}
+
+img {
+    max-width: 100%;
+}

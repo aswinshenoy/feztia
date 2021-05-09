@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<HTML>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Corrections Requested for Your {{ eventName }} Registration</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+    <body style="background: #111; font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.35;">
+        <table border="0" cellpadding="0" cellspacing="0" style="background: #111; width: 100%">
+            <tbody>
+                <tr>
+                    <td class="container" style="font-size: 14px; vertical-align: top; display: block; margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;">
+                        <div class="content" style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;">
+                            <table class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;  border-radius: 3px;">
+{#                                <tr>#}
+{#                                    <img draggable="false" alt="Biocrest" style="width: 30%;" src="https://i.imgur.com/SJ5indM.png" />#}
+{#                                </tr>#}
+                                <tr>
+                                     <td class="wrapper" style="box-shadow: 2px 3px 5px rgba(0,0,0,0.3); background: #333; color: white; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;">
+                                         <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                                             <div style="font-weight: 600; margin-bottom: 8px">
+                                                 Hi
+                                                 <img style="width: 18px;" draggable="false" src="https://img.icons8.com/fluent/48/000000/so-so.png">
+                                             </div>
+                                             <h2>Corrections Requested for Your {{ eventName }} Registration</h2>
+                                             <p>
+                                                 Thank you for initiating the registration process for {{ eventName }}.
+                                                 You are requested to make the following corrections for the registration approval.
+                                             </p>
+                                             <div style="padding: 1rem; margin: 15px 0; background-color: #222">
+                                                 <div>Remarks</div>
+                                                 {{ remarks }}
+                                             </div>
+                                             <p>
+                                                 You can make the corrections in the dashboard as requested by logging-in
+                                                 using the email and password. We have also provided a quick edit link below,
+                                                 which you can directly access once you have logged-in to make the change.
+                                                 Kindly make the corrections and we will review once again.
+                                             </p>
+                                             <div style="margin-bottom: 25px">
+                                                  <a
+                                                     style="box-shadow: 2px 3px 5px rgba(0,0,0,0.3); border-radius: 3px; display: inline-block; text-decoration: none!important; padding: 10px 20px; font-size: 16px; font-weight: 600; color: white; background: #4A148C;"
+                                                     href="{{ editURL }}"
+                                                 >
+                                                     Edit Registration
+                                                 </a>
+                                             </div>
+                                             <div>Thanking You,</div>
+                                             <div>Team ShaktiCon</div>
+                                             <a href="https://shakticon.com" style=" text-decoration: none!important; color: #1DE9B6">shakticon.com</a>
+                                         </table>
+                                     </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="container" style="color: #eee; font-size: 14px; vertical-align: top; display: block; margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;">
+                    <div style="text-align: center; font-size: 11px">
+                        <p>
+                            This email was sent to you because a Shakticon registration was initiated with this email address.
+                        </p>
+                        <p>
+                            Kindly note this is a system generated no-reply email. Please do not reply to this email.
+                        </p>
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</HTML>
