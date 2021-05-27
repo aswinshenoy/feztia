@@ -7,15 +7,13 @@ services:
         networks:
           - main
         ports:
-          - "5432:5432"
-        expose:
-          - "5432"
+          - 5432
         environment:
           - POSTGRES_DB
           - POSTGRES_USER
           - POSTGRES_PASSWORD
-        volumes:
-          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+#        volumes:
+#          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
     redis:
         container_name: feztia_redis
         image: "redis:6.0-rc3-buster"
@@ -23,17 +21,17 @@ services:
         networks:
           - main
         ports:
-         - "6379:6379"
+         - 6379
         
     framework:
         container_name: feztia_framework
         networks:
           - main
         ports:
-          - 8000:8000
+          - 8000
         volumes:
           - ./framework:/framework
-        image: feztia_framework:0.0.2
+        image: feztia_framework
         build:
           context: framework
           dockerfile: Dockerfile
@@ -50,7 +48,9 @@ services:
           - POSTGRES_USER
           - POSTGRES_PASSWORD
           - POSTGRES_HOST=db
-          
+          - AWS_ACCESS_KEY_ID
+          - AWS_SECRET_ACCESS_KEY
+          - S3_STORAGE_BUCKET_NAME
           # Redis
           - TASK_QUEUE_REDIS_HOST=redis
          
@@ -59,7 +59,7 @@ services:
     
     huey:
         container_name: feztia_huey
-        image: feztia_framework:0.0.2
+        image: feztia_framework
         command: python manage.py run_huey
         volumes:
           - ./framework:/framework
@@ -76,15 +76,17 @@ services:
           - POSTGRES_USER
           - POSTGRES_PASSWORD
           - POSTGRES_HOST=db
-          
+          - AWS_ACCESS_KEY_ID
+          - AWS_SECRET_ACCESS_KEY
+          - S3_STORAGE_BUCKET_NAME
           # Redis
           - TASK_QUEUE_REDIS_HOST=redis
   
     webapp:
         container_name: feztia_webapp
-        image: feztia_webapp:0.0.3
+        image: feztia_webapp:0.1
         ports:
-          - 3000:3000
+          - 3000
         networks:
           - main
         links:
@@ -98,18 +100,18 @@ services:
           - GRAPHQL_SERVER_ENDPOINT=/api/graphql/
         build:
           context: webapp
-          dockerfile: Dockerfile-Dev
+          dockerfile: Dockerfile
         command:
-          "npm run dev"
-     
+          "npm run start"
+
     nginx:
         container_name: feztia_nginx
-        image: nginx:0.0.2
+        image: nginx:0.1
         build:
           context: nginx
           dockerfile: Dockerfile
         ports:
-          - "80:80"
+          - 80:80
         depends_on: 
           - framework
           - webapp

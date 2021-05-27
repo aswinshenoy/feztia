@@ -105,7 +105,7 @@ Feztia is powered by a modern web-stack, and runs as multiple dockerized microse
 
 ## 👨🏻‍💻 Group Members
 
-Developed with  ♥ in <img src="https://flagcdn.com/w20/in.png"> by
+Developed with  ♥ in <img src="https://flagcdn.com/w20/in.png">
 
 ## ✒️License
 This project is licensed under the GNU General Public License V3.
