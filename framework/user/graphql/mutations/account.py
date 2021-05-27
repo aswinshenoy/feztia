@@ -42,7 +42,7 @@ class RegisterUser(
                 name=input.name,
                 email=input.email,
                 username=generate_username_from_email(input.email),
-                UTMSource=input.UTMSource
+                UTMSource=input.UTMSource if input.UTMSource else ''
             )
             user.set_password(input.password)
             user.save()
