@@ -106,7 +106,7 @@ services:
 
     nginx:
         container_name: feztia_nginx
-        image: nginx:0.1
+        image: nginx:0.2
         build:
           context: nginx
           dockerfile: Dockerfile
