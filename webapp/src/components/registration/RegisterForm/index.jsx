@@ -160,19 +160,7 @@ const RegistrationForm = ({ type = 'login' }) => {
                             {   currentTab === 'forgot' ?
                                 <ResetForm /> :
                                 currentTab === 'register' ?
-                                // <RegisterForm onRegister={handleRegisterFormSubmit} /
-                                <div
-                                    style={{ minHeight: '35vh' }}
-                                    className="text-center p-3 d-flex align-items-center justify-content-center"
-                                >
-                                    <div>
-                                        <h1 className="font-weight-bold text-danger">Registrations Closed</h1>
-                                        <p>
-                                            Registrations for Biocrest 2021 has been closed, registered
-                                            participants can use login as usual.
-                                        </p>
-                                    </div>
-                                </div>:
+                                <RegisterForm onRegister={handleRegisterFormSubmit} /> :
                                 <LoginForm onLogin={handleSignIn} onReset={() => setTab('forgot')} />
                             }
                         </div>
