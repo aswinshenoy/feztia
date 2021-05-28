@@ -28,7 +28,7 @@ const OnBoardWrap = styled.div`
 `;
 
 const StageButton = styled.button`
-  background: ${({ active, complete }) => complete ? '#a02541!important' : active ? 'white!important' : 'none!important'};
+  background: ${({ theme, active, complete }) => complete ? `${theme.colors.primary}!important` : active ? 'white!important' : 'none!important'};
   border: none!important;
   border-radius: 0;
   color: ${({active, complete }) => complete ? 'white!important' : '#444!important'};;
@@ -408,7 +408,7 @@ const OnBoarding = ({ startZero = false, }) => {
                             if(s.value === 'event_profile')
                                 return <Fade key={shortid.generate()}>
                                     <EventFieldsForm
-                                        eventName="Biocrest"
+                                        eventName={eventName}
                                         formFields={eventProfile?.event?.formFields}
                                         formData={eventProfile?.formData}
                                         onSave={handleEventProfileSave}

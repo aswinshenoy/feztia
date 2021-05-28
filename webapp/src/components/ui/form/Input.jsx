@@ -4,12 +4,12 @@ import styled from "@emotion/styled";
 const FormInput = styled.div`
   input {
     font-size: 15px!important;
-    border: 1px solid #AF0C3E!important;
+    border: 1px solid ${({ theme }) => theme.colors.primary}!important;
     padding: 8px 10px;
     margin: 1px;
     border-radius: 0;
     &:focus {
-      border: 2px solid #AF0C3E!important;
+      border: 2px solid ${({ theme }) => theme.colors.primary}!important;
       margin: 0!important;
       outline: none!important;
     }

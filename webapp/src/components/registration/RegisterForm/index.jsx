@@ -55,6 +55,7 @@ const RegisterPageWrapper = styled.main`
 
 
 const eventID = process.env.eventID;
+const eventName = process?.env?.eventName || '';
 const organizerURL = process?.env?.links?.organizerURL || null;
 const organizerName = process?.env?.labels?.organizerName || null;
 
@@ -127,15 +128,15 @@ const RegistrationForm = ({ type = 'login' }) => {
                     <section className="bg-white  pb-5 rounded-top shadow" style={{ width: '450px', maxWidth: '100%', minHeight: '500px' }}>
                         <TabSwitchers>
                             <button
-                                aria-label="Register for Biocrest"
-                                onClick={() => { setError(null); setTab('register')}} title="Register for Biocrest"
+                                aria-label={`Register for ${eventName}`}
+                                onClick={() => { setError(null); setTab('register')}} title={`Register for ${eventName}`}
                                 className={classNames("plain-button", {'active': currentTab === 'register'})}
                             >
                                 Register
                             </button>
                             <button
-                                aria-label="Login with your Biocrest account"
-                                onClick={() =>  { setError(null); setTab('login')}} title="Login with your Biocrest account"
+                                aria-label={`Login with your ${eventName} Account`}
+                                onClick={() =>  { setError(null); setTab('login')}} title={`Login with your ${eventName} Account`}
                                 className={classNames("plain-button", {'active': currentTab === 'login'})}
                             >
                                 Login
