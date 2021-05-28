@@ -22,13 +22,21 @@ const Footer = () => {
                 <a rel="noreferrer nofollow" href={organizerURL}>
                     <img
                         alt={organizerName}
-                        className="mr-2"
+                        className="mr-2 mb-3"
                         draggable="false"
                         style={{ maxWidth: '220px' }}
                         src={require('../../assets/branding/organizer_logo.png')}
                     />
                 </a>
-                <div> Copyright &copy; 2020 {process.env.labels?.copyrightHolder}. All Rights Reserved.</div>
+                <div>
+                    Copyright &copy; 2020-{new Date().getFullYear()} {process.env.labels?.copyrightHolder}.
+                    <span className="d-inline-block ml-1">
+                        All Rights Reserved.
+                    </span>
+                    <span className="d-inline-block ml-1">
+                        Powered by <a href="https://github.com/aswinshenoy" className="plain-link" target="_blank">Feztia</a>.
+                    </span>
+                </div>
             </div>
             <div className="col-md-6 p-2 d-flex align-items-end justify-content-center justify-content-md-end">
                 <a href="#">Privacy Policy</a>

@@ -17,6 +17,7 @@ import BasicInfoForm from "./BasicInfo";
 import {MY_EVENT_PROFILE_QUERY, PARTICIPATE_MUTATION} from "../../graphql/queries/event";
 import {MY_PROFILE_QUERY, UPDATE_MUTATION} from "../../graphql/queries/user";
 import EventFieldsForm from "../fields/EventForm";
+import Footer from "../shared/Footer";
 
 const eventID = process.env.eventID;
 
@@ -461,6 +462,7 @@ const OnBoarding = ({ startZero = false, }) => {
                 (startZero || (profile && !profile?.isProfileComplete)) ?
                     (isSubmitting ? renderSubmitting() : renderForm()) : <div />
         }
+        <Footer />
     </OnBoardWrap>;
 
 };

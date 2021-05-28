@@ -9,15 +9,10 @@
     }
   },
   "features": {
-    "team": {
-      "createTeam": true,
-      "joinTeam": true
-    },
-    "competition": {
-      "showSubmissions": true
-    },
+    "team": false,
+    "competition": false,
     "webinar": true,
-    "feed": true,
+    "feed": false,
     "profile": {
       "registrationStatus": {
         "IDCard": {
@@ -25,9 +20,7 @@
           "showType": true
         }
       },
-      "myRegistrations": {
-        "showEditButton": true
-      }
+      "myRegistrations": false
     },
     "dashboard": {
       "liveEvents": {
