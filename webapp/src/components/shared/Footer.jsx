@@ -34,7 +34,7 @@ const Footer = () => {
                         All Rights Reserved.
                     </span>
                     <span className="d-inline-block ml-1">
-                        Powered by <a href="https://github.com/aswinshenoy" className="plain-link" target="_blank">Feztia</a>.
+                        Powered by <a href="https://github.com/aswinshenoy" className="plain-link mx-0" target="_blank">Feztia</a>.
                     </span>
                 </div>
             </div>

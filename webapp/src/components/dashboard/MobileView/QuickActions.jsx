@@ -28,6 +28,7 @@ const QuickActions = ({
     return <div className="p-2">
         <h5 className="font-weight-bold">Quick Links</h5>
         <div className="row mx-0">
+            {process.env.features?.webinar &&
             <div className="col-6 p-2">
                 <QuickLinkButton onClick={() => onOpenTab('webinar')}>
                     <div>
@@ -39,7 +40,7 @@ const QuickActions = ({
                     </div>
 
                 </QuickLinkButton>
-            </div>
+            </div>}
             <div className="col-6 p-2">
                 <QuickLinkButton onClick={() => onOpenTab('profile')}>
                    <div>
@@ -51,6 +52,7 @@ const QuickActions = ({
                    </div>
                 </QuickLinkButton>
             </div>
+            {process.env.features?.webinar &&
             <div className="col-6 p-2">
                 <QuickLinkButton onClick={() => onOpenTab('profile')}>
                    <div>
@@ -61,7 +63,8 @@ const QuickActions = ({
                        <div>My ID Card</div>
                    </div>
                 </QuickLinkButton>
-            </div>
+            </div>}
+            {process.env.features?.competition &&
             <div className="col-6 p-2">
                 <QuickLinkButton  onClick={() => onOpenTab('competition')}>
                     <div>
@@ -72,7 +75,7 @@ const QuickActions = ({
                         <div>Competitions</div>
                     </div>
                 </QuickLinkButton>
-            </div>
+            </div>}
         </div>
     </div>
 
