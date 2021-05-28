@@ -6,25 +6,25 @@ from huey.contrib.djhuey import task
 
 @task()
 def send_status_to_number(name, number, isApproved=True) -> None:
-    # from django.conf import settings
-    # from requests import post
-    # SMS_API_URL = "http://alertbox.in/pushsms.php"
-    # DOMAIN = 'https://amrita.edu/biocrest'
-    #
-    # template = "Changes requested for completing your registration for {name}. Please make the requested changes from your dashboard. @{domain}"
-    # if isApproved:
-    #     template = "Your registration for {name} has been approved. More details can be found on the dashboard. Thank you. @{domain}"
-    # message = template.format(name=name, domain=DOMAIN)
-    # data = {
-    #     "username": settings.ALERTBOX_USERNAME,
-    #     "api_password": settings.ALERTBOX_PASSWORD,
-    #     "sender": settings.ALERTBOX_SENDER_ID,
-    #     "to": number,
-    #     "message": message,
-    #     "priority": 4
-    # }
-    # r = post(SMS_API_URL, data=data)
-    # print(r.content)
+    from django.conf import settings
+    from requests import post
+    SMS_API_URL = "http://alertbox.in/pushsms.php"
+    DOMAIN = 'https://events.amritauniversity.info/'
+
+    template = "Changes requested for completing your registration for {name}. Please make the requested changes from your dashboard. @{domain}"
+    if isApproved:
+        template = "Your registration for {name} has been approved. More details can be found on the dashboard. Thank you. @{domain}"
+    message = template.format(name=name, domain=DOMAIN)
+    data = {
+        "username": settings.ALERTBOX_USERNAME,
+        "api_password": settings.ALERTBOX_PASSWORD,
+        "sender": settings.ALERTBOX_SENDER_ID,
+        "to": number,
+        "message": message,
+        "priority": 4
+    }
+    r = post(SMS_API_URL, data=data)
+    print(r.content)
     return None
 
 @task()

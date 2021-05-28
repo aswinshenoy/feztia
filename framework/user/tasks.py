@@ -6,23 +6,23 @@ from huey.contrib.djhuey import task, db_task
 
 @task()
 def send_otp_to_number(code, number) -> None:
-    # from django.conf import settings
-    # from requests import post
-    # SMS_API_URL = "http://alertbox.in/pushsms.php"
-    # DOMAIN = 'https://amrita.edu/biocrest'
-    #
-    # template = """<#> {otp} is the OTP for your Amrita Biocrest registration. @{domain} #{otp}"""
-    # message = template.format(otp=code, domain=DOMAIN)
-    # data = {
-    #     "username": settings.ALERTBOX_USERNAME,
-    #     "api_password": settings.ALERTBOX_PASSWORD,
-    #     "sender": settings.ALERTBOX_SENDER_ID,
-    #     "to": number,
-    #     "message": message,
-    #     "priority": 4
-    # }
-    # r = post(SMS_API_URL, data=data)
-    # print(r.content)
+    from django.conf import settings
+    from requests import post
+    SMS_API_URL = "http://alertbox.in/pushsms.php"
+    DOMAIN = 'https://events.amritauniversity.info/'
+
+    template = """<#> {otp} is the OTP for your Amrita EMS registration. @{domain} #{otp}"""
+    message = template.format(otp=code, domain=DOMAIN)
+    data = {
+        "username": settings.ALERTBOX_USERNAME,
+        "api_password": settings.ALERTBOX_PASSWORD,
+        "sender": settings.ALERTBOX_SENDER_ID,
+        "to": number,
+        "message": message,
+        "priority": 4
+    }
+    r = post(SMS_API_URL, data=data)
+    print(r.content)
     return None
 
 
