@@ -1,10 +1,10 @@
 {
   "GRAPHQL_SERVER_ENDPOINT": "/api/graphql/",
   "eventID": 1,
-  "eventName": "Biocrest",
+  "eventName": "AISG",
   "theme": {
     "colors": {
-      "primary": "#AF0C3E",
+      "primary": "#015970",
       "primaryInv": "white"
     }
   },
@@ -39,24 +39,28 @@
     }
   },
   "SEOTags": {
-    "siteName": "BIOCREST 2021",
+    "siteName": "AI for Social Good (ASIG) Symposium 2021",
     "tagLine": "International Symposium on Antimicrobial Resistance",
-    "description": "BIOCREST 2021 - An International Symposium on Antimicrobial Resistance organized by Amrita Vishwa Vidyapeetam. Register Today, limited seats available."
+    "description": "AI for Social Good (ASIG) Symposium 2021- An International Symposium on AI for Social Good organized by Amrita Vishwa Vidyapeetam. Register Today, limited seats available."
   },
   "links": {
-    "organizerURL": "https://amrita.edu/biocrest",
+    "organizerURL": "https://amrita.edu/aisg",
     "headerLinks": [
       {
         "label": "Main Website",
-        "url": "https://amrita.edu/biocrest"
+        "url": "https://amrita.edu/aisg"
       },
       {
-        "label": "About",
-        "url": "https://www.amrita.edu/biocrest/the-symposia/"
+        "label": "Committeee",
+        "url": "https://www.amrita.edu/aisg/committee/"
       },
       {
-        "label": "Blog",
-        "url": "https://www.amrita.edu/biocrest/blog/"
+        "label": "Schedule",
+        "url": "https://www.amrita.edu/aisg/schedules/"
+      },
+      {
+        "label": "Speakers",
+        "url": "https://www.amrita.edu/aisg/speaker/"
       }
     ]
   },
