@@ -51,6 +51,9 @@ services:
           - AWS_ACCESS_KEY_ID
           - AWS_SECRET_ACCESS_KEY
           - S3_STORAGE_BUCKET_NAME
+          - ALERTBOX_USERNAME
+          - ALERTBOX_PASSWORD
+          - ALERTBOX_SENDER_ID
           # Redis
           - TASK_QUEUE_REDIS_HOST=redis
          
@@ -79,6 +82,9 @@ services:
           - AWS_ACCESS_KEY_ID
           - AWS_SECRET_ACCESS_KEY
           - S3_STORAGE_BUCKET_NAME
+          - ALERTBOX_USERNAME
+          - ALERTBOX_PASSWORD
+          - ALERTBOX_SENDER_ID
           # Redis
           - TASK_QUEUE_REDIS_HOST=redis
   
