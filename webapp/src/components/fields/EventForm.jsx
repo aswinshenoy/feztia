@@ -225,7 +225,7 @@ const EventFieldsForm = ({
                     f.type === 'submission' ? renderSubmission(f)
                     : <div>Unsupported Field</div>
                 ) : null}
-            {(!isEditor && formFields.some((f) => f.isPublic)) &&
+            {(!isEditor && formFields?.length > 0 && formFields.some((f) => f.isPublic)) &&
             <div className="mt-4 p-2 d-flex">
                 <input
                     type="checkbox"
