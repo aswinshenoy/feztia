@@ -1,19 +1,19 @@
 version: '3.6'
 services:
-    db:
-        container_name: feztia_pgdb
-        restart: always
-        image: postgres
-        networks:
-          - main
-        ports:
-          - 5432
-        environment:
-          - POSTGRES_DB
-          - POSTGRES_USER
-          - POSTGRES_PASSWORD
-#        volumes:
-#          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+#    db:
+#        container_name: feztia_pgdb
+#        restart: always
+#        image: postgres
+#        networks:
+#          - main
+#        ports:
+#          - 5432
+#        environment:
+#          - POSTGRES_DB
+#          - POSTGRES_USER
+#          - POSTGRES_PASSWORD
+##        volumes:
+##          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
     redis:
         container_name: feztia_redis
         image: "redis:6.0-rc3-buster"
@@ -36,7 +36,7 @@ services:
           context: framework
           dockerfile: Dockerfile
         links:
-          - db:db
+#          - db:db
           - redis:redis
         environment:
           - SECRET_KEY=$FRAMEWORK_SECRET_KEY
@@ -47,7 +47,7 @@ services:
           - POSTGRES_DB
           - POSTGRES_USER
           - POSTGRES_PASSWORD
-          - POSTGRES_HOST=db
+          - POSTGRES_HOST
           - AWS_ACCESS_KEY_ID
           - AWS_SECRET_ACCESS_KEY
           - S3_STORAGE_BUCKET_NAME
@@ -67,7 +67,7 @@ services:
         networks:
           - main
         links:
-          - db:db
+#          - db:db
           - redis:redis
         environment:
         
@@ -75,7 +75,7 @@ services:
           - POSTGRES_DB
           - POSTGRES_USER
           - POSTGRES_PASSWORD
-          - POSTGRES_HOST=db
+          - POSTGRES_HOST
           - AWS_ACCESS_KEY_ID
           - AWS_SECRET_ACCESS_KEY
           - S3_STORAGE_BUCKET_NAME
