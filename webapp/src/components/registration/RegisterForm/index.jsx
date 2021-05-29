@@ -122,7 +122,7 @@ const RegistrationForm = ({ type = 'login' }) => {
         <div className="w-100" style={{ minHeight: '120px' }}>
             <Header transparent hideAuthButtons hideHeaderNav />
         </div>
-        <div style={{ minHeight: '90vh' }} className="d-block d-md-flex align-items-center justify-content-center px-0">
+        <div style={{ minHeight: '80vh' }} className="d-block d-md-flex align-items-center justify-content-center px-0">
             <div>
                 <Fade up timeout={500}>
                     <section className="bg-white  pb-5 rounded-top shadow" style={{ width: '450px', maxWidth: '100%', minHeight: '500px' }}>
