@@ -1,9 +1,8 @@
 <img style="max-height: 120px; margin-bottom: 12px" src="docs/assets/feztia_logo_dark.png" />
 
 # Feztia - Event Management Suite for Universities 
-<h4 style="color: red">Submission towards S6 Software Engineering Project</h4>
 
-**👓 Live Preview**: [15.206.185.226](http://15.206.185.226/)
+**👓 Live Preview**: [https://events.amritauniversity.info](https://events.amritauniversity.info)
 
 Feztia is an all-in-one event management suite for universities and institutions to organize their events hassle-free!
 
@@ -103,10 +102,9 @@ Feztia is powered by a modern web-stack, and runs as multiple dockerized microse
     </tr>
 </table>
 
-## 👨🏻‍💻 Group Members
-
-Developed with  ♥ in <img src="https://flagcdn.com/w20/in.png">
-
 ## ✒️License
 This project is licensed under the GNU General Public License V3.
 
+---
+
+Developed with  ♥ in <img src="https://flagcdn.com/w20/in.png">
