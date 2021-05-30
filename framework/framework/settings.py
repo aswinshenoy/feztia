@@ -169,6 +169,8 @@ EMAIL_BACKEND = 'django_ses.SESBackend'
 AWS_SES_REGION_NAME = 'ap-south-1'
 AWS_SES_REGION_ENDPOINT = 'email.ap-south-1.amazonaws.com'
 
+SES_EMAIL_DOMAIN = 'events.amritauniversity.info'
+
 # EMAIL_USE_TLS = True
 # EMAIL_HOST = 'smtp-mail.outlook.com'
 # EMAIL_HOST_USER = env.str('OUTLOOK_EMAIL', default='')

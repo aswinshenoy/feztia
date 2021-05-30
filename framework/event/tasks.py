@@ -35,10 +35,11 @@ def send_email_confirming_registration(user, participant) -> None:
     }
     htmly = get_template('./emails/reg-approval.html')
     html_content = htmly.render(data)
+    from django.conf import settings
     send_mail(
         subject=participant.event.name + ' Registration Approved',
         message=strip_tags(html_content),
-        from_email='verify@mails.traboda.com',
+        from_email='verify@' + settings.SES_EMAIL_DOMAIN,
         recipient_list=[user.email],
         html_message=html_content,
         fail_silently=False,
@@ -54,10 +55,11 @@ def send_email_requesting_correction(user, participant, editURL=None) -> None:
     }
     htmly = get_template('./emails/verify-remarks.html')
     html_content = htmly.render(data)
+    from django.conf import settings
     send_mail(
         subject='Corrections Requested for ' + participant.event.name + ' Registration',
         message=strip_tags(html_content),
-        from_email='verify@mails.traboda.com',
+        from_email='verify@' + settings.SES_EMAIL_DOMAIN,
         recipient_list=[user.email],
         html_message=html_content,
         fail_silently=False,
@@ -66,10 +68,11 @@ def send_email_requesting_correction(user, participant, editURL=None) -> None:
 
 @task()
 def send_event_email(email, subject, htmlContent) -> None:
+    from django.conf import settings
     send_mail(
         subject=subject,
         message=strip_tags(htmlContent),
-        from_email='shakticon@mails.traboda.com',
+        from_email='verify@' + settings.SES_EMAIL_DOMAIN,
         recipient_list=[email],
         html_message=htmlContent,
         fail_silently=False,
@@ -78,7 +81,7 @@ def send_event_email(email, subject, htmlContent) -> None:
 
 @task()
 def send_event_emails(emails, subject, url, imageURL) -> None:
-    sub = subject if subject else 'ShaktiCon Update'
+    sub = subject if subject else 'Event Update'
     data = {
         "subject": sub,
         "imageURL": imageURL.split('?')[0] if imageURL else None,

@@ -53,10 +53,11 @@ def send_email_confirmation_email(user, code, eventID=None) -> None:
 
     htmly = get_template('./emails/email-verification.html')
     html_content = htmly.render(data)
+    from django.conf import settings
     send_mail(
         subject=eventName + ': Verify Your Email',
         message=strip_tags(html_content),
-        from_email=emailHost+'@mails.traboda.com',
+        from_email=emailHost+'@'+settings.SES_EMAIL_DOMAIN,
         recipient_list=[user.email],
         html_message=html_content,
         fail_silently=False,
@@ -72,7 +73,7 @@ def send_password_reset_email(user, code, eventID=None) -> None:
 
     eventName = 'Amrita EMS'
     emailHost = 'verify'
-    eventLogo = ''
+    eventLogo = 'https://i.imgur.com/ymsmLdH.png'
     if eventID is not None:
         from event.models import Event
         try:
@@ -91,10 +92,11 @@ def send_password_reset_email(user, code, eventID=None) -> None:
 
     htmly = get_template('./emails/reset-password.html')
     html_content = htmly.render(data)
+    from django.conf import settings
     send_mail(
         subject=eventName + ': Reset Your Password',
         message=strip_tags(html_content),
-        from_email=emailHost+'@mails.traboda.com',
+        from_email=emailHost+'@'+settings.SES_EMAIL_DOMAIN,
         recipient_list=[user.email],
         html_message=html_content,
         fail_silently=False,
