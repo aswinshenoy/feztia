@@ -18,10 +18,9 @@ const IDUploader = ({ profile, hideSkip = false, onContinue = () => {}, onSkip =
     };
 
     return <div>
-         <h2 style={{ color: '#AF0C3E', fontWeight: '600' }} className="mb-3">Upload ID Card (Optional)</h2>
+         <h2 style={{ color: '#AF0C3E', fontWeight: '600' }} className="mb-3">Upload ID Card</h2>
         <p style={{ maxWidth: '600px' }}>
-            We might need to manually verify your ID card for reviewing especially if you have won any prizes.
-            If you skip now, you will asked only if you win any prize.
+            We might need to manually verify your ID card for reviewing your registration.
             Please make sure that details on the card are matching to the information provided,
             and are legible when you upload.
         </p>
@@ -46,14 +45,14 @@ const IDUploader = ({ profile, hideSkip = false, onContinue = () => {}, onSkip =
         <Row>
             <Col md={6} />
             <Col md={6} p={2} className="mt-4" flexHR>
-                {!hideSkip &&
-                <FormButton
-                    text="Skip"
-                    onClick={onSkip}
-                    py={4} px={5} round={0}
-                    className="mr-2"
-                    background="#333!important"
-                />}
+                {/*{!hideSkip &&*/}
+                {/*<FormButton*/}
+                {/*    text="Skip"*/}
+                {/*    onClick={onSkip}*/}
+                {/*    py={4} px={5} round={0}*/}
+                {/*    className="mr-2"*/}
+                {/*    background="#333!important"*/}
+                {/*/>}*/}
                 {hasChanged && <FormButton
                     text="Submit ID Card"
                     onClick={handleComplete}

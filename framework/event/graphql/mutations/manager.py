@@ -147,9 +147,9 @@ class ReviewParticipant(graphene.Mutation):
                     reg.approver = None
                     reg.timestampApproved = None
                     reg.save()
-                    editURL = 'https://register.shakticon.com/edit-profile'
+                    editURL = 'https://events.amritauniversity.info/edit-profile'
                     if reg.event.parent is not None:
-                        editURL = 'https://register.shakticon.com/register/' + reg.event.slug
+                        editURL = 'https://events.amritauniversity.info/register/' + reg.event.slug
                     if user:
                         if user.phone and user.isPhoneVerified:
                             send_status_to_number(number=user.phone, isApproved=False, name=reg.event.name)
