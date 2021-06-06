@@ -122,33 +122,37 @@ class ResendOTP(
     @resolve_user
     def mutate(self, info, phone: str = None):
         user = info.context.user
-        if user.country == 'India':
-            if phone is not None:
-                if (not len(phone) == 13) or (not phone.startswith('+91')):
-                    raise APIException('Invalid phone number', code='INVALID_PHONE_NO')
-                if user.phone != phone and User.objects.filter(phone=phone).exists():
-                    raise APIException('An account with this phone already exist.', code='PHONE_IN_USE')
-                user.phone = phone
-                user.isPhoneVerified = False
-                user.save()
-            else:
-                if user.isPhoneVerified:
-                    raise APIException('Phone already verified', code='PHONE_ALREADY_VERIFIED')
-            code = generate_otp()
-            try:
-                entry = UserVerificationOTP.objects.get(user=user, isPhoneOTP=True)
-                if entry.timestamp + timedelta(minutes=1) > timezone.now():
-                    raise APIException(
-                        'Try after ' + str((entry.timestamp + timedelta(minutes=1) - timezone.now()).seconds) + ' seconds',
-                        code='TRY_LATER'
-                    )
-                entry.code = code
-                entry.timestamp = timezone.now()
-                entry.save()
-            except UserVerificationOTP.DoesNotExist:
-                UserVerificationOTP.objects.create(code=code, user=user, isPhoneOTP=True)
-            send_otp_to_number(code, number=phone)
+        user.phone = phone
+        user.isPhoneVerified = False
+        user.save()
         return True
+#         if user.country == 'India':
+#             if phone is not None:
+#                 if (not len(phone) == 13) or (not phone.startswith('+91')):
+#                     raise APIException('Invalid phone number', code='INVALID_PHONE_NO')
+#                 if user.phone != phone and User.objects.filter(phone=phone).exists():
+#                     raise APIException('An account with this phone already exist.', code='PHONE_IN_USE')
+#                 user.phone = phone
+#                 user.isPhoneVerified = False
+#                 user.save()
+#             else:
+#                 if user.isPhoneVerified:
+#                     raise APIException('Phone already verified', code='PHONE_ALREADY_VERIFIED')
+#             code = generate_otp()
+#             try:
+#                 entry = UserVerificationOTP.objects.get(user=user, isPhoneOTP=True)
+#                 if entry.timestamp + timedelta(minutes=1) > timezone.now():
+#                     raise APIException(
+#                         'Try after ' + str((entry.timestamp + timedelta(minutes=1) - timezone.now()).seconds) + ' seconds',
+#                         code='TRY_LATER'
+#                     )
+#                 entry.code = code
+#                 entry.timestamp = timezone.now()
+#                 entry.save()
+#             except UserVerificationOTP.DoesNotExist:
+#                 UserVerificationOTP.objects.create(code=code, user=user, isPhoneOTP=True)
+#             send_otp_to_number(code, number=phone)
+#        return True
 
 
 class VerifyOTP(
