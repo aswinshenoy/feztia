@@ -71,7 +71,10 @@ class Participate(
                 event = Event.objects.get(id=eventID)
                 approver = None
                 approverTimestamp = None
-                if not event.acceptRegistrations or timezone.now() > event.registrationCloseTimestamp:
+                if (
+                    not event.acceptRegistrations or
+                    (event.registrationCloseTimestamp and timezone.now() > event.registrationCloseTimestamp)
+                ):
                     raise APIException('Registration closed', code='REG_CLOSED')
                 if event.slotLimits and Participant.objects.filter(event=event, approver__isnull=False).count() > event.slotLimits:
                     raise APIException('Registration closed', code='REG_CLOSED')
