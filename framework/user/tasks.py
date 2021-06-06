@@ -17,6 +17,8 @@ def send_otp_to_number(code, number) -> None:
         "username": settings.ALERTBOX_USERNAME,
         "api_password": settings.ALERTBOX_PASSWORD,
         "sender": settings.ALERTBOX_SENDER_ID,
+        "e_id": settings.ALERTBOX_ENTITY_ID,
+        "t_id": settings.ALERTBOX_TEMPLATE_ID,
         "to": number,
         "message": message,
         "priority": 4

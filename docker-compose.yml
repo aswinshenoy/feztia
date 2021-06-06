@@ -58,7 +58,7 @@ services:
           - TASK_QUEUE_REDIS_HOST=redis
          
         command: 
-            "daphne -b 0.0.0.0 -p 8000 framework.asgi:application"
+            "daphne -b 0.0.0.0 -p 8000 framework.asgi:application --verbosity 0"
     
     huey:
         container_name: feztia_huey

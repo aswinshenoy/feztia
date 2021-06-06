@@ -162,7 +162,8 @@ USE_TZ = True
 ALERTBOX_USERNAME = env.str('ALERTBOX_USERNAME', default='')
 ALERTBOX_PASSWORD = env.str('ALERTBOX_PASSWORD', default='')
 ALERTBOX_SENDER_ID = env.str('ALERTBOX_SENDER_ID', default='')
-
+ALERTBOX_ENTITY_ID = env.str('ALERTBOX_ENTITY_ID', default='')
+ALERTBOX_TEMPLATE_ID = env.str('ALERTBOX_TEMPLATE_ID', default='')
 
 # Email settings
 EMAIL_BACKEND = 'django_ses.SESBackend'
