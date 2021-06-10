@@ -4,8 +4,9 @@ import Base from "../src/components/shared/Base";
 import RegistrationForm from "../src/components/registration/RegisterForm";
 import ViewAuthenticator from "../src/components/shared/ViewAuthenticator";
 
-import {Button} from "srx";
 import FormButton from "../src/components/ui/styled-components/Button";
+
+import '../src/styles/frame.css';
 
 const RegisterFrame = () => {
 
@@ -15,9 +16,9 @@ const RegisterFrame = () => {
                 <RegistrationForm type="register" isFrame/>
             </div>}
             renderAuth={() =>
-            <div className="p-3">
+            <div className="text-center p-3">
                 <h1 className="mb-3 font-weight-bold">Registered Successfully</h1>
-                <a target="_blank" href="https://events.amrita.edu/">
+                <a target="_blank" className="plain-link" href="https://events.amrita.edu/">
                     <FormButton
                         text="Open Dashboard"
                         py={4} px={5} round={0}
