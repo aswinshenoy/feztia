@@ -5,6 +5,7 @@ import RegistrationForm from "../src/components/registration/RegisterForm";
 import ViewAuthenticator from "../src/components/shared/ViewAuthenticator";
 
 import {Button} from "srx";
+import FormButton from "../src/components/ui/styled-components/Button";
 
 const RegisterFrame = () => {
 
@@ -15,13 +16,13 @@ const RegisterFrame = () => {
             </div>}
             renderAuth={() =>
             <div className="p-3">
-                <h1>Registered Successfully</h1>
-                <Button
-                    variant="primary"
-                    link="https://events.amrita.edu/"
-                    px={4} py={3}
-                    text="Open Dashboard"
-                />
+                <h1 className="mb-3 font-weight-bold">Registered Successfully</h1>
+                <a target="_blank" href="https://events.amrita.edu/">
+                    <FormButton
+                        text="Open Dashboard"
+                        py={4} px={5} round={0}
+                    />
+                </a>
             </div>}
         />
     </Base>;
