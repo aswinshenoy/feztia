@@ -119,7 +119,7 @@ const RegistrationForm = ({ type = 'login', isFrame = false }) => {
     const renderForm = () =>
     <div
         style={{ minHeight: !isFrame ? '80vh' : null }}
-        className="d-block d-md-flex align-items-center justify-content-center px-0"
+        className={!isFrame ? "d-block d-md-flex align-items-center justify-content-center px-0" : null}
     >
         <div>
             <Fade up timeout={500}>
@@ -167,16 +167,16 @@ const RegistrationForm = ({ type = 'login', isFrame = false }) => {
                     {/*    <SocialLogin />*/}
                     {/*</div>*/}
                 </section>
-                {!isFrame &&
-                <div className="footer-organizer-bar rounded-bottom">
-                    <a rel="noreferrer nofollow" href={organizerURL}>
-                        <img
-                            alt={organizerName} draggable="false"
-                            src={require('../../../assets/branding/organizer_logo.png')}
-                        />
-                    </a>
-                </div>}
             </Fade>
+            {!isFrame &&
+            <div className="footer-organizer-bar rounded-bottom">
+                <a rel="noreferrer nofollow" href={organizerURL}>
+                    <img
+                        alt={organizerName} draggable="false"
+                        src={require('../../../assets/branding/organizer_logo.png')}
+                    />
+                </a>
+            </div>}
         </div>
     </div>
 
