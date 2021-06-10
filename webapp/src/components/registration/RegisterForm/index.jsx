@@ -117,68 +117,47 @@ const RegistrationForm = ({ type = 'login', isFrame = false }) => {
     </div>
 
     const renderForm = () =>
-    <div
-        style={{ minHeight: !isFrame ? '80vh' : null }}
-        className={!isFrame ? "d-block d-md-flex align-items-center justify-content-center px-0" : null}
-    >
-        <div>
-            <Fade up timeout={500}>
-                <section className="bg-white  pb-5 rounded-top shadow" style={{ width: '450px', maxWidth: '100%', minHeight: '500px' }}>
-                    <TabSwitchers>
-                        <button
-                            aria-label={`Register for ${eventName}`}
-                            onClick={() => { setError(null); setTab('register')}} title={`Register for ${eventName}`}
-                            className={classNames("plain-button", {'active': currentTab === 'register'})}
-                        >
-                            Register
-                        </button>
-                        <button
-                            aria-label={`Login with your ${eventName} Account`}
-                            onClick={() =>  { setError(null); setTab('login')}} title={`Login with your ${eventName} Account`}
-                            className={classNames("plain-button", {'active': currentTab === 'login'})}
-                        >
-                            Login
-                        </button>
-                    </TabSwitchers>
-                    <div className="position-relative p-4">
-                        {isRegistering &&
-                        <div
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                background: `rgba(0,0,0,0.85)`
-                            }}
-                            className="d-flex align-items-center text-light justify-content-center text-center"
-                        >
-                            <h3>Registering</h3>
-                        </div>}
-                        {error && renderError()}
-                        {   currentTab === 'forgot' ?
-                            <ResetForm /> :
-                            currentTab === 'register' ?
-                                <RegisterForm onRegister={handleRegisterFormSubmit} /> :
-                                <LoginForm onLogin={handleSignIn} onReset={() => setTab('forgot')} />
-                        }
-                    </div>
-                    {/*<div className="p-2">*/}
-                    {/*    <SocialLogin />*/}
-                    {/*</div>*/}
-                </section>
-            </Fade>
-            {!isFrame &&
-            <div className="footer-organizer-bar rounded-bottom">
-                <a rel="noreferrer nofollow" href={organizerURL}>
-                    <img
-                        alt={organizerName} draggable="false"
-                        src={require('../../../assets/branding/organizer_logo.png')}
-                    />
-                </a>
+    <section className="bg-white" style={{ maxWidth: '600px' }}>
+        <TabSwitchers>
+            <button
+                aria-label={`Register for ${eventName}`}
+                onClick={() => { setError(null); setTab('register')}} title={`Register for ${eventName}`}
+                className={classNames("plain-button", {'active': currentTab === 'register'})}
+            >
+                Register
+            </button>
+            <button
+                aria-label={`Login with your ${eventName} Account`}
+                onClick={() =>  { setError(null); setTab('login')}} title={`Login with your ${eventName} Account`}
+                className={classNames("plain-button", {'active': currentTab === 'login'})}
+            >
+                Login
+            </button>
+        </TabSwitchers>
+        <div className="position-relative p-4">
+            {isRegistering &&
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: `rgba(0,0,0,0.85)`
+                }}
+                className="d-flex align-items-center text-light justify-content-center text-center"
+            >
+                <h3>Registering</h3>
             </div>}
+            {error && renderError()}
+            {   currentTab === 'forgot' ?
+                <ResetForm /> :
+                currentTab === 'register' ?
+                    <RegisterForm onRegister={handleRegisterFormSubmit} /> :
+                    <LoginForm onLogin={handleSignIn} onReset={() => setTab('forgot')} />
+            }
         </div>
-    </div>
+    </section>;
 
     return isFrame ? renderForm() :
     <RegisterPageWrapper
@@ -187,7 +166,26 @@ const RegistrationForm = ({ type = 'login', isFrame = false }) => {
         <div className="w-100" style={{ minHeight: '120px' }}>
             <Header transparent hideAuthButtons hideHeaderNav />
         </div>
-        {renderForm()}
+        <div
+            style={{ minHeight: '80vh' }}
+            className="d-block d-md-flex align-items-center justify-content-center px-0"
+        >
+            <div>
+                <Fade up timeout={500}>
+                    <section className="bg-white  pb-5 rounded-top shadow" style={{ width: '450px', maxWidth: '100%', minHeight: '500px' }}>
+                     {renderForm()}
+                    </section>
+                    <div className="footer-organizer-bar rounded-bottom">
+                        <a rel="noreferrer nofollow" href={organizerURL}>
+                            <img
+                                alt={organizerName} draggable="false"
+                                src={require('../../../assets/branding/organizer_logo.png')}
+                            />
+                        </a>
+                    </div>
+                </Fade>
+            </div>
+        </div>
     </RegisterPageWrapper>;
 
 };
