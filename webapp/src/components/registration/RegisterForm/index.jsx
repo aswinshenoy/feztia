@@ -117,7 +117,7 @@ const RegistrationForm = ({ type = 'login', isFrame = false }) => {
     </div>
 
     const renderForm = () =>
-    <section className="bg-white" style={{ maxWidth: '600px' }}>
+    <section className="bg-white" style={{ maxWidth: '600px', borderRadius: isFrame ? '1rem' : null }}>
         <TabSwitchers>
             <button
                 aria-label={`Register for ${eventName}`}

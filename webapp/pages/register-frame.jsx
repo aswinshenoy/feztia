@@ -16,12 +16,14 @@ const RegisterFrame = () => {
                 <RegistrationForm type="register" isFrame/>
             </div>}
             renderAuth={() =>
-            <div className="bg-white text-center p-3">
-                <h1 className="mb-3 font-weight-bold">Account Created</h1>
-                <p className="mb-3">Please complete your profile opening the dashboard to complete your registration.</p>
-                <a target="_blank" className="plain-link" href="https://events.amrita.edu/">
+            <div className="bg-white text-center py-5 px-3">
+                <h1 className="my-3 font-weight-bold">Account Created</h1>
+                <p className="mb-3" style={{ fontSize: '1.5rem' }}>
+                    Please complete your profile opening the dashboard to complete your registration.
+                </p>
+                <a target="_blank" className="plain-link text-decoration-none mb-5" href="https://events.amrita.edu/">
                     <FormButton
-                        text="Open Dashboard"
+                        text="Open Dashboard to Continue"
                         py={4} px={5} round={0}
                     />
                 </a>
