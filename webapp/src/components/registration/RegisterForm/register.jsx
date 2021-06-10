@@ -97,13 +97,13 @@ const RegisterForm = ({ onRegister = () => {} }) => {
         <Fade up delay={500}>
             <Row mt={2} py={2}>
                 <Col md={8} p={1} flexVC>
-                    <div className="pr-2 pb-3" style={{ fontSize: '10px', lineHeight: '1.6' }}>
-                        By registering for {process.env.eventName}, you accept our
-                        <span className="d-inline-block">
-                            <a href="/terms" className="font-weight-bold pr-1">Terms & Conditions</a> and
-                            <a href="/privacy" className="font-weight-bold pl-1">Privacy Policy</a>.
-                        </span>
-                    </div>
+                    {/*<div className="pr-2 pb-3" style={{ fontSize: '10px', lineHeight: '1.6' }}>*/}
+                    {/*    By registering for {process.env.eventName}, you accept our*/}
+                    {/*    <span className="d-inline-block">*/}
+                    {/*        <a href="/terms" className="font-weight-bold pr-1">Terms & Conditions</a> and*/}
+                    {/*        <a href="/privacy" className="font-weight-bold pl-1">Privacy Policy</a>.*/}
+                    {/*    </span>*/}
+                    {/*</div>*/}
                 </Col>
                 <Col md={4} p={0} flexHR>
                     <FormButton

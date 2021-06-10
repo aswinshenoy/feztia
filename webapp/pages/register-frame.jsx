@@ -16,8 +16,8 @@ const RegisterFrame = () => {
                 <RegistrationForm type="register" isFrame/>
             </div>}
             renderAuth={() =>
-            <div className="bg-white text-center py-5 px-3">
-                <h1 className="my-3 font-weight-bold">Account Created</h1>
+            <div style={{ borderRadius: '1rem' }} className="bg-white text-center py-5 px-3">
+                <h1 style={{ color: '#015970' }} className="my-3 font-weight-bold">Account Created</h1>
                 <p className="mb-3" style={{ fontSize: '1.5rem' }}>
                     Please complete your profile opening the dashboard to complete your registration.
                 </p>
