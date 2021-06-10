@@ -1,114 +1,113 @@
-version: '3.6'
 services:
-#    db:
-#        container_name: feztia_pgdb
-#        restart: always
-#        image: postgres
-#        networks:
-#          - main
-#        ports:
-#          - 5432
-#        environment:
-#          - POSTGRES_DB
-#          - POSTGRES_USER
-#          - POSTGRES_PASSWORD
-##        volumes:
-##          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
-    redis:
-        container_name: feztia_redis
-        image: "redis:6.0-rc3-buster"
-        restart: always
-        networks:
-          - main
-        ports:
-         - 6379
-        
-    framework:
-        container_name: feztia_framework
-        networks:
-          - main
-        ports:
-          - 8000
-        volumes:
-          - ./framework:/framework
-        image: feztia_framework
-        build:
-          context: framework
-          dockerfile: Dockerfile
-        links:
-#          - db:db
-          - redis:redis
-        environment:
-          - SECRET_KEY=$FRAMEWORK_SECRET_KEY
-          - DEBUG=$FRAMEWORK_DEBUG
-          - ALLOWED_HOSTS=$FRAMEWORK_ALLOWED_HOSTS
-          
-          # Database Settings
-          - POSTGRES_DB
-          - POSTGRES_USER
-          - POSTGRES_PASSWORD
-          - POSTGRES_HOST
-          - AWS_ACCESS_KEY_ID
-          - AWS_SECRET_ACCESS_KEY
-          - S3_STORAGE_BUCKET_NAME
-          - ALERTBOX_USERNAME
-          - ALERTBOX_PASSWORD
-          - ALERTBOX_SENDER_ID
-          # Redis
-          - TASK_QUEUE_REDIS_HOST=redis
-         
-        command: 
-            "daphne -b 0.0.0.0 -p 8000 framework.asgi:application --verbosity 0"
-    
-    huey:
-        container_name: feztia_huey
-        image: feztia_framework
-        command: python manage.py run_huey
-        volumes:
-          - ./framework:/framework
-        restart: always
-        networks:
-          - main
-        links:
-#          - db:db
-          - redis:redis
-        environment:
-        
-          # Database Settings
-          - POSTGRES_DB
-          - POSTGRES_USER
-          - POSTGRES_PASSWORD
-          - POSTGRES_HOST
-          - AWS_ACCESS_KEY_ID
-          - AWS_SECRET_ACCESS_KEY
-          - S3_STORAGE_BUCKET_NAME
-          - ALERTBOX_USERNAME
-          - ALERTBOX_PASSWORD
-          - ALERTBOX_SENDER_ID
-          # Redis
-          - TASK_QUEUE_REDIS_HOST=redis
-  
-    webapp:
-        container_name: feztia_webapp
-        image: feztia_webapp:0.1
-        ports:
-          - 80
-        networks:
-          - main
-        links:
-          - framework:framework
-        volumes:
-          - ./webapp:/app
-          - /app/node_modules
-          - /app/.next
-        environment:
-          - PREFETCH_SERVER_ENDPOINT=http://framework:8000/api/graphql/
-          - GRAPHQL_SERVER_ENDPOINT=/api/graphql/
-        build:
-          context: webapp
-          dockerfile: Dockerfile
-        command:
-          "npm run start"
+  #    db:
+  #        container_name: feztia_pgdb
+  #        restart: always
+  #        image: postgres
+  #        networks:
+  #          - main
+  #        ports:
+  #          - 5432
+  #        environment:
+  #          - POSTGRES_DB
+  #          - POSTGRES_USER
+  #          - POSTGRES_PASSWORD
+  ##        volumes:
+  ##          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+  redis:
+    container_name: feztia_redis
+    image: "redis:6.0-rc3-buster"
+    restart: always
+    networks:
+      - main
+    ports:
+      - 6379
+
+  framework:
+    container_name: feztia_framework
+    networks:
+      - main
+    ports:
+      - 8000:8000
+    volumes:
+      - ./framework:/framework
+    image: feztia_framework
+    build:
+      context: framework
+      dockerfile: Dockerfile
+    links:
+      #          - db:db
+      - redis:redis
+    environment:
+      - SECRET_KEY=$FRAMEWORK_SECRET_KEY
+      - DEBUG=$FRAMEWORK_DEBUG
+      - ALLOWED_HOSTS=$FRAMEWORK_ALLOWED_HOSTS
+
+      # Database Settings
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_HOST
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - S3_STORAGE_BUCKET_NAME
+      - ALERTBOX_USERNAME
+      - ALERTBOX_PASSWORD
+      - ALERTBOX_SENDER_ID
+      # Redis
+      - TASK_QUEUE_REDIS_HOST=redis
+
+    command:
+      "daphne -b 0.0.0.0 -p 8000 framework.asgi:application --verbosity 0"
+
+  huey:
+    container_name: feztia_huey
+    image: feztia_framework
+    command: python manage.py run_huey
+    volumes:
+      - ./framework:/framework
+    restart: always
+    networks:
+      - main
+    links:
+      #          - db:db
+      - redis:redis
+    environment:
+
+      # Database Settings
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_HOST
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - S3_STORAGE_BUCKET_NAME
+      - ALERTBOX_USERNAME
+      - ALERTBOX_PASSWORD
+      - ALERTBOX_SENDER_ID
+      # Redis
+      - TASK_QUEUE_REDIS_HOST=redis
+
+  webapp:
+    container_name: feztia_webapp
+    image: feztia_webapp:0.1
+    ports:
+      - 3000:80
+    networks:
+      - main
+    links:
+      - framework:framework
+    volumes:
+      - ./webapp:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - PREFETCH_SERVER_ENDPOINT=http://framework:8000/api/graphql/
+      - GRAPHQL_SERVER_ENDPOINT=/api/graphql/
+    build:
+      context: webapp
+      dockerfile: Dockerfile
+    command:
+      "npm run start"
 
 #    nginx:
 #        container_name: feztia_nginx
@@ -125,4 +124,4 @@ services:
 #          - main
 #        command: [nginx-debug, '-g', 'daemon off;']
 networks:
-  main:   
+  main:
