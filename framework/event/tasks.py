@@ -9,7 +9,7 @@ def send_status_to_number(name, number, isApproved=True) -> None:
     from django.conf import settings
     from requests import post
     SMS_API_URL = "http://alertbox.in/pushsms.php"
-    DOMAIN = 'https://events.amritauniversity.info/'
+    DOMAIN = 'https://events.amrita.edu/'
 
     template = "Changes requested for completing your registration for {name}. Please make the requested changes from your dashboard. @{domain}"
     if isApproved:
@@ -39,7 +39,7 @@ def send_email_confirming_registration(user, participant) -> None:
     send_mail(
         subject=participant.event.name + ' Registration Approved',
         message=strip_tags(html_content),
-        from_email='verify@' + settings.SES_EMAIL_DOMAIN,
+        from_email='asig@' + settings.SES_EMAIL_DOMAIN,
         recipient_list=[user.email],
         html_message=html_content,
         fail_silently=False,
@@ -51,7 +51,7 @@ def send_email_requesting_correction(user, participant, editURL=None) -> None:
     data = {
         "remarks": participant.remarks,
         "eventName": participant.event.name,
-        "editURL": editURL if editURL else 'https://register.shakticon.com/edit-profile',
+        "editURL": editURL if editURL else 'https://events.amrita.edu/edit-profile',
     }
     htmly = get_template('./emails/verify-remarks.html')
     html_content = htmly.render(data)
@@ -59,7 +59,7 @@ def send_email_requesting_correction(user, participant, editURL=None) -> None:
     send_mail(
         subject='Corrections Requested for ' + participant.event.name + ' Registration',
         message=strip_tags(html_content),
-        from_email='verify@' + settings.SES_EMAIL_DOMAIN,
+        from_email='asig@' + settings.SES_EMAIL_DOMAIN,
         recipient_list=[user.email],
         html_message=html_content,
         fail_silently=False,
@@ -72,7 +72,7 @@ def send_event_email(email, subject, htmlContent) -> None:
     send_mail(
         subject=subject,
         message=strip_tags(htmlContent),
-        from_email='verify@' + settings.SES_EMAIL_DOMAIN,
+        from_email='asig@' + settings.SES_EMAIL_DOMAIN,
         recipient_list=[email],
         html_message=htmlContent,
         fail_silently=False,

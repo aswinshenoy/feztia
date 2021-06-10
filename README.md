@@ -2,7 +2,7 @@
 
 # Feztia - Event Management Suite for Universities 
 
-**👓 Live Preview**: [https://events.amritauniversity.info](https://events.amritauniversity.info)
+**👓 Live Preview**: [https://events.amrita.edu](https://events.amrita.edu)
 
 Feztia is an all-in-one event management suite for universities and institutions to organize their events hassle-free!
 

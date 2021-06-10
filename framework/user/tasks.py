@@ -9,7 +9,7 @@ def send_otp_to_number(code, number) -> None:
     from django.conf import settings
     from requests import post
     SMS_API_URL = "http://alertbox.in/pushsms.php"
-    DOMAIN = 'https://events.amritauniversity.info/'
+    DOMAIN = 'https://events.amrita.edu/'
 
     template = """<#> {otp} is the OTP for your Amrita EMS registration. @{domain} #{otp}"""
     message = template.format(otp=code, domain=DOMAIN)
