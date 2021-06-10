@@ -16,8 +16,9 @@ const RegisterFrame = () => {
                 <RegistrationForm type="register" isFrame/>
             </div>}
             renderAuth={() =>
-            <div className="text-center p-3">
-                <h1 className="mb-3 font-weight-bold">Registered Successfully</h1>
+            <div className="bg-white text-center p-3">
+                <h1 className="mb-3 font-weight-bold">Account Created</h1>
+                <p className="mb-3">Please complete your profile opening the dashboard to complete your registration.</p>
                 <a target="_blank" className="plain-link" href="https://events.amrita.edu/">
                     <FormButton
                         text="Open Dashboard"
