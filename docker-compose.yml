@@ -110,19 +110,19 @@ services:
         command:
           "npm run start"
 
-    nginx:
-        container_name: feztia_nginx
-        image: nginx:0.2
-        build:
-          context: nginx
-          dockerfile: Dockerfile
-        ports:
-          - 80:80
-        depends_on: 
-          - framework
-          - webapp
-        networks:
-          - main
-        command: [nginx-debug, '-g', 'daemon off;']
+#    nginx:
+#        container_name: feztia_nginx
+#        image: nginx:0.2
+#        build:
+#          context: nginx
+#          dockerfile: Dockerfile
+#        ports:
+#          - 80:80
+#        depends_on:
+#          - framework
+#          - webapp
+#        networks:
+#          - main
+#        command: [nginx-debug, '-g', 'daemon off;']
 networks:
   main:   
