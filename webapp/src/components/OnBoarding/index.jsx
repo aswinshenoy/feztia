@@ -374,6 +374,7 @@ const OnBoarding = ({ startZero = false, isFrame = false }) => {
     <BodyContainer>
         <div className="container px-0" style={{ maxWidth: '1200px' }}>
             <Row>
+                {!isFrame &&
                 <Col md={3} p={0}>
                     <div className="d-md-block d-none">
                         {renderStages(stages)}
@@ -381,7 +382,7 @@ const OnBoarding = ({ startZero = false, isFrame = false }) => {
                     <div className="d-block d-md-none">
                         {renderStages(beforeStages())}
                     </div>
-                </Col>
+                </Col>}
                 <BodyCol md={9} px={2} py={0}>
                     <section className="bg-white p-3">
                         {stages.filter((s) => s.active === true).map((s) => {
@@ -445,11 +446,12 @@ const OnBoarding = ({ startZero = false, isFrame = false }) => {
                         })}
                     </section>
                 </BodyCol>
+                {!isFrame &&
                 <Col md={3} p={0}>
                     <div className="d-block d-md-none">
                         {renderStages(afterStages())}
                     </div>
-                </Col>
+                </Col>}
             </Row>
         </div>
     </BodyContainer>;
