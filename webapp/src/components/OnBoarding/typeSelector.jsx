@@ -62,7 +62,7 @@ const UserTypeSelector = ({
         <p>You would like to register as - </p>
         <Row py={2}>
             {roles.map((r, index) =>
-                <Col key={`role-${r.value}-${r.label}`} s={6} lg={3} px={2} py={2}>
+                <Col key={`role-${r.value}-${r.label}`} s={6} md={4} lg={3} px={2} py={2}>
                     <Fade delay={250*index}>
                         <RoleButton selected={role!==null} active={r.value===role} onClick={() => setRole(r.value)}>
                             <img

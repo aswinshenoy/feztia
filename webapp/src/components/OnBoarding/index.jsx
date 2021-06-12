@@ -371,7 +371,7 @@ const OnBoarding = ({ startZero = false, isFrame = false }) => {
 
 
     const renderForm = () =>
-    <BodyContainer>
+    <BodyContainer style={{ display: isFrame ? 'block' : null }}>
         <div className="container px-0" style={{ maxWidth: '1200px' }}>
             <Row>
                 {!isFrame &&
