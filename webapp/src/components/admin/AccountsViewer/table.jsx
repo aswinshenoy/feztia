@@ -67,6 +67,7 @@ export default ({
                 <th style={{ minWidth: '40px' }}>#</th>
                 <th style={{ minWidth: '150px' }}>Name</th>
                 <th style={{ minWidth: '120px' }}>Status</th>
+                <th style={{ minWidth: '120px' }}>Source</th>
                 <th style={{ minWidth: '90px' }}>Type</th>
                 <th style={{ minWidth: '180px' }}>Affiliation</th>
                 <th style={{ minWidth: '90px' }}>Gender</th>
@@ -108,6 +109,7 @@ export default ({
                                         'Incomplete Profile'
                                 }
                             </td>
+                            <td>{s?.UTMSource}</td>
                             <td>{getTypeName(s.type)}</td>
                             <td>
                                 {s?.affiliationTitle?.label}, {s?.affiliationBody?.label}

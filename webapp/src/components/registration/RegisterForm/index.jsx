@@ -59,7 +59,7 @@ const eventName = process?.env?.eventName || '';
 const organizerURL = process?.env?.links?.organizerURL || null;
 const organizerName = process?.env?.labels?.organizerName || null;
 
-const RegistrationForm = ({ type = 'login', isFrame = false }) => {
+const RegistrationForm = ({ type = 'login', isFrame = false, query }) => {
 
     const [currentTab, setTab] = useState(type);
 
@@ -90,7 +90,8 @@ const RegistrationForm = ({ type = 'login', isFrame = false }) => {
                     email: p.email,
                     password: p.password,
                     name: p.name,
-                    eventID
+                    eventID,
+                    UTMSource: (query && query['utm_source']) ? query['utm_source'] : '',
                 }
             }
         }).then(({ data, error}) => {

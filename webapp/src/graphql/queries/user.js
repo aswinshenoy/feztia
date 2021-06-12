@@ -141,6 +141,7 @@ query ($eventID: ID!, $search: String, $count: Int, $after: String, $publicListi
         country
         gender
         type
+        UTMSource
         affiliationTitle {
           value: id
           label: name

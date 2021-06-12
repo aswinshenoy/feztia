@@ -10,12 +10,12 @@ import '../src/styles/frame.css';
 import OnBoarding from "../src/components/OnBoarding";
 
 
-const RegisterFrame = () => {
+const RegisterFrame = ({ query }) => {
 
     return <Base meta={{title: 'Register'}}>
         <ViewAuthenticator
             renderPublic={() => <div>
-                <RegistrationForm type="register" isFrame />
+                <RegistrationForm type="register" isFrame query={query} />
             </div>}
             renderAuth={(userInfo) =>
             (userInfo?.isProfileComplete || userInfo?.type === 0) ?
@@ -35,5 +35,10 @@ const RegisterFrame = () => {
     </Base>;
 
 };
+
+RegisterFrame.getInitialProps = async ({ req, query }) => {
+    return { host: req?.headers?.host, query };
+}
+
 
 export default RegisterFrame;

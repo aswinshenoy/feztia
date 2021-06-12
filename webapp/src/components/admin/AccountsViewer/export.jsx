@@ -32,7 +32,7 @@ export default ({
             d.push([
                 '#', 'Title', 'Name', 'Status', 'Type', 'Phone', 'Email', 'Date Joined', 'City', 'State',
                 'County', 'Gender', 'Affiliation Title', 'Affiliation Body',
-                ...formfields
+                ...formfields, 'Source'
             ])
             profiles.forEach(({ profile: s, isApproved, remarks, formData: f }, index) => {
                 if(s){
@@ -80,7 +80,8 @@ export default ({
                         `${s.gender}`,
                         `${s.affiliationTitle?.label}`,
                         `${s.affiliationBody?.label}`,
-                        ...fieldData
+                        ...fieldData,
+                        `${s.UTMSource}`
                     ])
                 }
             })
