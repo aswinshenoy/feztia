@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from '../../states';
 
 const ViewAuthenticator = ({
-   renderAdmin = () => <div />,
+   renderAdmin = null,
    renderAuth = () => <div />,
    renderPublic = () => <div />,
    renderLoading = () => <div />,
-   renderJudge = () => <div />,
+   renderJudge = null
 }) => {
 
     const [hasLoaded, setLoaded] = useState(false);
@@ -16,10 +16,12 @@ const ViewAuthenticator = ({
     // prettier-ignore
     useEffect(() => { setLoaded(true); }, []);
 
-    return hasLoaded ? (isLoggedIn ?
-        userInfo?.type === 4 ? renderJudge(userInfo) :
-        userInfo?.type === 0 ? renderAdmin(userInfo) :
-        renderAuth(userInfo) : renderPublic()
+    return hasLoaded ? (
+        isLoggedIn ? (
+            userInfo?.type === 4 ? (renderJudge ? renderJudge(userInfo) : renderAuth(userInfo)) :
+            userInfo?.type === 0 ? (renderAdmin ? renderAdmin(userInfo) : renderAuth(userInfo)) :
+            renderAuth(userInfo)
+        ) : renderPublic()
     ) : renderLoading();
 };
 

@@ -67,7 +67,7 @@ const BodyCol = styled(Col)`
 `;
 
 
-const OnBoarding = ({ startZero = false, }) => {
+const OnBoarding = ({ startZero = false, isFrame = false }) => {
 
     const [participate] = useMutation(PARTICIPATE_MUTATION);
 
@@ -455,13 +455,15 @@ const OnBoarding = ({ startZero = false, }) => {
     </BodyContainer>;
 
 
-    return <OnBoardWrap>
+    const renderForms = () =>
+    profileLoading ? <div >Loading Your Profile</div > :
+    (startZero || (profile && !profile?.isProfileComplete)) ?
+    (isSubmitting ? renderSubmitting() : renderForm()) : <div />
+
+    return isFrame ? renderForms() :
+    <OnBoardWrap>
         <Header />
-        {
-            profileLoading ? <div >Loading Your Profile</div > :
-                (startZero || (profile && !profile?.isProfileComplete)) ?
-                    (isSubmitting ? renderSubmitting() : renderForm()) : <div />
-        }
+        {renderForms()}
         <Footer />
     </OnBoardWrap>;
 
