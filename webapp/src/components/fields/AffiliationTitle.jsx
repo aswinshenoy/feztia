@@ -58,6 +58,7 @@ const AffiliationTitle = ({
             value={value}
             onCreateOption={handleCreate}
             cacheOptions
+            dropdownIcon='fa'
             defaultOptions={titleList?.affiliationTitles}
             loadOptions={asyncLoadTitles}
             styles={customStyles}
