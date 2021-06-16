@@ -62,14 +62,15 @@ const AffiliationTitle = ({
             }
         </label>
         <AsyncCreatableSelect
-            id="affiliation-body-input"
-            placeholder="Enter/Select Affiliation Body"
+            id="affiliation-title-input"
+            placeholder="Enter Affiliation Title"
             onChange={onChange}
             value={value}
             onCreateOption={handleCreate}
             cacheOptions
             components={{
                 Menu,
+                IndicatorSeparator: (p) => null,
                 DropdownIndicator: (p) =>
                 <components.DropdownIndicator {...p}>
                     <i className="fa fa-id-card" />
