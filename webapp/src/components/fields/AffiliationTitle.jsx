@@ -63,7 +63,12 @@ const AffiliationTitle = ({
         </label>
         <AsyncCreatableSelect
             id="affiliation-title-input"
-            placeholder="Enter Affiliation Title"
+            placeholder={
+                `Enter ${isStudent ? 'Course / Qualification' :
+                    isAcademician || isIndustry ? 'Job Title'
+                        : 'Affiliation Title'
+                }`
+            }
             onChange={onChange}
             value={value}
             onCreateOption={handleCreate}

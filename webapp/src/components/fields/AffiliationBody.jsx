@@ -64,7 +64,13 @@ const AffiliationBody = ({
         </label>
         <AsyncCreatableSelect
             id="affiliation-body-input"
-            placeholder="Enter Affiliation Body"
+            placeholder={
+                `Enter ${isStudent ? 'College / School' :
+                    isAcademician ? 'Institution' :
+                        isIndustry ? 'Organization / Company'
+                            : 'Affiliation Body'
+                }`
+            }
             onChange={onChange}
             value={value}
             onCreateOption={handleCreate}
