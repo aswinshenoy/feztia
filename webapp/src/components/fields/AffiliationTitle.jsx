@@ -45,7 +45,7 @@ const AffiliationTitle = ({
 
     return <div>
         <label style={{ fontWeight: 600, color: '#333' }} className="px-1 mb-1">
-            {isStudent ? 'Course/Qualification' :
+            {isStudent ? 'Course / Qualification' :
                 isAcademician || isIndustry ? 'Job Title'
                 : 'Affiliation Title'
             }
