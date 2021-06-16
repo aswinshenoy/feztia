@@ -59,7 +59,6 @@ const AffiliationBody = ({
             onCreateOption={handleCreate}
             cacheOptions
             dropdownIcon='fa'
-            defaultOptions={bodyList?.affiliationBodies}
             loadOptions={asyncLoadBodies}
             styles={customStyles}
         />

@@ -30,8 +30,7 @@ const AffiliationTitle = ({
     const handleCreate = (name) => {
         createAffiliationTitle({ variables: { name }}).then(({ data, error }) => {
             if(data?.addAffiliationTitle){
-                setValueChanged(true);
-                setProfile({...profile, affiliationTitle: data.addAffiliationTitle });
+                onChange(data.addAffiliationTitle);
             }
         })
     };
@@ -59,7 +58,7 @@ const AffiliationTitle = ({
             onCreateOption={handleCreate}
             cacheOptions
             dropdownIcon='fa'
-            defaultOptions={titleList?.affiliationTitles}
+            // defaultOptions={titleList?.affiliationTitles}
             loadOptions={asyncLoadTitles}
             styles={customStyles}
         />
