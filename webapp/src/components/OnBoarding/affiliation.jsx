@@ -32,7 +32,7 @@ const AffiliationForm = ({
 
     return <form onSubmit={handleSubmit}>
         <h2 style={{ color: '#AF0C3E', fontWeight: '600' }}>Affiliation</h2>
-        <p>The college, school, academic institution, organization or company you are affiliated with.</p>
+        <p>Enter the college, school, academic institution, organization or company you are affiliated with.</p>
         <div className="p-3">
             <div className="alert alert-info p-3">
                 The dropdown selectors below search and populate choices as you type, and you can add your own

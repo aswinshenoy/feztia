@@ -7,7 +7,7 @@ import {components} from "react-select";
 import {ADD_AFFILIATION_BODY, AFFILIATION_BODY_QUERY} from "../../graphql/queries/affiliation";
 
 const Menu = props => {
-    if (props.selectProps.inputValue.length === 0) return null
+    if (props.selectProps.inputValue.length < 3) return null
 
     return (
         <>
@@ -69,9 +69,12 @@ const AffiliationBody = ({
             value={value}
             onCreateOption={handleCreate}
             cacheOptions
-            dropdownIcon='fa fa-landmark'
             components={{
-                Menu
+                Menu,
+                DropdownIndicator: (p) =>
+                <components.DropdownIndicator {...p}>
+                    <i className="fa fa-landmark" />
+                </components.DropdownIndicator>,
             }}
             loadOptions={asyncLoadBodies}
             styles={customStyles}

@@ -7,7 +7,7 @@ import { components } from 'react-select'
 import { ADD_AFFILIATION_TITLE, AFFILIATION_TITLES_QUERY } from "../../graphql/queries/affiliation";
 
 const Menu = props => {
-    if (props.selectProps.inputValue.length === 0) return null
+    if (props.selectProps.inputValue.length < 3) return null
 
     return (
         <>
@@ -68,9 +68,12 @@ const AffiliationTitle = ({
             value={value}
             onCreateOption={handleCreate}
             cacheOptions
-            dropdownIcon='fa fa-id-card'
             components={{
-                Menu
+                Menu,
+                DropdownIndicator: (p) =>
+                <components.DropdownIndicator {...p}>
+                    <i className="fa fa-id-card" />
+                </components.DropdownIndicator>,
             }}
             // defaultOptions={titleList?.affiliationTitles}
             loadOptions={asyncLoadTitles}
