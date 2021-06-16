@@ -2,8 +2,19 @@ import React from 'react';
 import {useMutation, useQuery} from "graphql-hooks";
 import AsyncCreatableSelect from 'react-select/async-creatable';
 import debounce from "lodash/debounce";
+import {components} from "react-select";
 
 import {ADD_AFFILIATION_BODY, AFFILIATION_BODY_QUERY} from "../../graphql/queries/affiliation";
+
+const Menu = props => {
+    if (props.selectProps.inputValue.length === 0) return null
+
+    return (
+        <>
+            <components.Menu {...props} />
+        </>
+    )
+}
 
 const AffiliationBody = ({
     value, onChange = () => {},
@@ -58,7 +69,10 @@ const AffiliationBody = ({
             value={value}
             onCreateOption={handleCreate}
             cacheOptions
-            dropdownIcon='fa'
+            dropdownIcon='fa fa-landmark'
+            components={{
+                Menu
+            }}
             loadOptions={asyncLoadBodies}
             styles={customStyles}
         />

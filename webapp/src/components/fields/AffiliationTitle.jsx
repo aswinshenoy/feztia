@@ -2,8 +2,19 @@ import React from 'react';
 import {useMutation, useQuery} from "graphql-hooks";
 import AsyncCreatableSelect from 'react-select/async-creatable';
 import debounce from "lodash/debounce";
+import { components } from 'react-select'
 
 import { ADD_AFFILIATION_TITLE, AFFILIATION_TITLES_QUERY } from "../../graphql/queries/affiliation";
+
+const Menu = props => {
+    if (props.selectProps.inputValue.length === 0) return null
+
+    return (
+        <>
+            <components.Menu {...props} />
+        </>
+    )
+}
 
 const AffiliationTitle = ({
   value, onChange = () => {},
@@ -57,7 +68,10 @@ const AffiliationTitle = ({
             value={value}
             onCreateOption={handleCreate}
             cacheOptions
-            dropdownIcon='fa'
+            dropdownIcon='fa fa-id-card'
+            components={{
+                Menu
+            }}
             // defaultOptions={titleList?.affiliationTitles}
             loadOptions={asyncLoadTitles}
             styles={customStyles}
