@@ -89,7 +89,7 @@ services:
 
   webapp:
     container_name: feztia_webapp
-    image: feztia_webapp:0.1
+    image: feztia_webapp
     ports:
       - 3000:80
     networks:
