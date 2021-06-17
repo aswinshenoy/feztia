@@ -11,7 +11,7 @@ const RegistrationCompletePage = () => {
     const [userInfo] = useAuthState('userInfo');
 
     useEffect(() => {
-        setUserInfo({ isProfileComplete: true });
+        setUserInfo({ ...userInfo, isProfileComplete: true });
     }, [])
 
     return <Base meta={{ title: 'Registration Completed' }}>
