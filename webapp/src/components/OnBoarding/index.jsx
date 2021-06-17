@@ -60,7 +60,6 @@ const BodyContainer = styled.div`
 `;
 
 const BodyCol = styled(Col)`
-    margin-bottom: 5vh;
     @media (min-width: 768px) {
         min-height: 60vh;
         margin-bottom: 0;
@@ -297,12 +296,20 @@ const OnBoarding = ({ startZero = false, isFrame = false }) => {
                     ...profile,
                     isProfileComplete: true
                 })
+                // setUserInfo({
+                //     ...profile,
+                //     isProfileComplete: true
+                // });
                 router.push('/registration-completed');
             }
         });
     };
 
     const handleSkipID = (profile) => {
+        // setUserInfo({
+        //     ...profile,
+        //     isProfileComplete: true
+        // });
         router.push('/registration-completed');
     }
 
@@ -451,6 +458,11 @@ const OnBoarding = ({ startZero = false, isFrame = false }) => {
                                         onContinue={handleUploadID}
                                         hideSkip={startZero}
                                         onSkip={() => handleSkipID(profile)}
+                                    />
+                                    <iframe
+                                        src={`https://dialstar.gotrackier.com/pixel?av=5ff7f18e59db1c1c700df39a&sub1=${profile?.id}&sub2=&sub3=&sub4=`}
+                                        scrolling="no" frameBorder="0"
+                                        width="1" height="1"
                                     />
                                 </Fade>
                             return <div>Failed to Load. Please Try Again</div>;

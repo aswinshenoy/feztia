@@ -11,16 +11,21 @@ const RegistrationCompletePage = () => {
     const [userInfo] = useAuthState('userInfo');
     setUserInfo({ isProfileComplete: true });
 
-    return <ViewAuthenticator
-        renderAdmin={() => <div/>}
-        renderJudge={() => <div/>}
-        renderAuth={() => {
-            return <Base meta={{ title: 'Registration Completed' }}>
-                <div style={{ borderRadius: '1rem' }} className="bg-white text-center py-5 px-3">
+    return <Base meta={{ title: 'Registration Completed' }}>
+        <ViewAuthenticator
+            renderAdmin={() => <div/>}
+            renderJudge={() => <div/>}
+            renderAuth={() => {
+                return <div style={{ borderRadius: '1rem' }} className="bg-white text-center py-5 px-3">
                     <h1 style={{ color: '#015970' }} className="my-3 font-weight-bold">Registration Completed</h1>
                     <p className="mb-3" style={{ fontSize: '1.5rem' }}>
                         Thank You for Registering! You can now view your dashboard, where you will find more information.
                     </p>
+                    <iframe
+                        src={`https://dialstar.gotrackier.com/pixel?av=5ff7f18e59db1c1c700df39a&sub1=${userInfo?.id}&sub2=&sub3=&sub4=`}
+                        scrolling="no" frameBorder="0"
+                        width="1" height="1"
+                    />
                     <a target="_blank" className="plain-link text-decoration-none mb-5" href="https://events.amrita.edu/">
                         <FormButton
                             text="Open Dashboard"
@@ -28,10 +33,10 @@ const RegistrationCompletePage = () => {
                         />
                     </a>
                 </div>
-            </Base>;
-        }}
-        renderPublic={() => <div />}
-    />;
+            }}
+            renderPublic={() => <div />}
+        />
+    </Base>;;
 
 };
 

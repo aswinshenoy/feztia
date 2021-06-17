@@ -16,8 +16,8 @@ const FormSelect = styled.div`
       }
       label { 
           font-size: 12px; 
-          font-weight: 600!important; 
-          margin-bottom: 0;
+          font-weight: 600!important;
+          margin: 0.35rem 0;
           display: block;
           color: #333;
       }
