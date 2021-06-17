@@ -22,11 +22,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from framework.graphql import schema
 from framework.views import HealthCheckView
+from user.urls import leads_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('graphql/', csrf_exempt(GraphQLView.as_view(schema=schema, graphiql=settings.DEBUG))),
     path('healthz/', HealthCheckView.as_view()),
 ]
+
+urlpatterns += leads_urlpatterns
 
 urlpatterns = [url(r'^api/', include(urlpatterns))]
