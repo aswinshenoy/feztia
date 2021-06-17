@@ -4,6 +4,7 @@ import {Col, Row} from "srx";
 import { useMutation, useQuery} from "graphql-hooks";
 import Fade from "react-reveal/Fade";
 import shortid from "shortid";
+import {useRouter} from "next/router";
 
 import UserTypeSelector from "./typeSelector";
 import EmailVerifyCard from "./emailVerify";
@@ -70,6 +71,7 @@ const BodyCol = styled(Col)`
 const OnBoarding = ({ startZero = false, isFrame = false }) => {
 
     const [participate] = useMutation(PARTICIPATE_MUTATION);
+    const router = useRouter();
 
     const {
         loading: eventProfileLoading,
@@ -295,19 +297,13 @@ const OnBoarding = ({ startZero = false, isFrame = false }) => {
                     ...profile,
                     isProfileComplete: true
                 })
-                setUserInfo({
-                    ...profile,
-                    isProfileComplete: true
-                })
+                router.push('/registration-completed');
             }
         });
     };
 
     const handleSkipID = (profile) => {
-        setUserInfo({
-            ...profile,
-            isProfileComplete: true
-        })
+        router.push('/registration-completed');
     }
 
     const openStage = (value) => {

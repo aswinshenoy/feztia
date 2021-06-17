@@ -11,7 +11,7 @@ def LeadsView(request: HttpRequest, token=None):
         user__is_superuser=True, token=token, revoked__isnull=True
     ).exists():
         users = User.objects.filter(
-            UTMSource__in=['Facebook', 'Instagram']
+            UTMSource__in=['Facebook', 'Instagram', 'dialstar']
         ).values(
             'id', 'name', 'email', 'phone', 'date_joined', 'UTMSource', 'isEmailVerified', 'country', 'type', 'gender',
             'affiliationBody__name', 'affiliationTitle__name'
