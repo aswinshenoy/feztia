@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import Base from "../src/components/shared/Base";
 import ViewAuthenticator from "../src/components/shared/ViewAuthenticator";
@@ -9,7 +9,10 @@ import FormButton from "../src/components/ui/styled-components/Button";
 const RegistrationCompletePage = () => {
 
     const [userInfo] = useAuthState('userInfo');
-    setUserInfo({ isProfileComplete: true });
+
+    useEffect(() => {
+        setUserInfo({ isProfileComplete: true });
+    }, [])
 
     return <Base meta={{ title: 'Registration Completed' }}>
         <ViewAuthenticator
@@ -36,8 +39,8 @@ const RegistrationCompletePage = () => {
             }}
             renderPublic={() => <div />}
         />
-    </Base>;;
+    </Base>;
 
 };
 
-    export default RegistrationCompletePage;
+export default RegistrationCompletePage;
