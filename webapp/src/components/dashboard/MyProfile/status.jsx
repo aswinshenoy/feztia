@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useQuery} from "graphql-hooks";
 import {MY_EVENT_PROFILE_QUERY} from "../../../graphql/queries/event";
 import MyIDCard from "./IDCard";
 import FormButton from "../../ui/styled-components/Button";
+import {setUserInfo} from "../../../states";
 
 const eventID = process.env.eventID;
 
 const RegistrationStatus = () => {
 
-    const { loading, data } = useQuery(MY_EVENT_PROFILE_QUERY, { variables: { eventID }});
+    const { loading, data, error } = useQuery(MY_EVENT_PROFILE_QUERY, { variables: { eventID }});
+
+    const LOGOUT_CODES = [
+        'INVALID_REFRESH_TOKEN', 'AUTHENTICATION_REQUIRED', 'REFRESH_TOKEN_NOT_FOUND',
+        'REFRESH_TOKEN_EXPIRED', 'INVALID_TOKEN_PAYLOAD', 'INVALID_REFRESH_TOKEN_FINGERPRINT'
+    ];
+
+    useEffect(() => {
+        if(
+            error?.graphQLErrors?.length > 0 &&
+            LOGOUT_CODES.includes(error?.graphQLErrors[0]?.code)
+        )
+            setUserInfo(null);
+    }, [error]);
 
     return loading ? <div>Loading</div> :
     data?.myEventProfile?.isApproved ?
