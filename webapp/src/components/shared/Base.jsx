@@ -68,8 +68,6 @@ const Base = ({ children, meta }) => {
             <link rel='apple-touch-icon' href='/images/icons/icon-180x180.png' />
             <link rel="shortcut icon" href="../images/icons/icon-72x72.png" />
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-
-
             {GoogleAnalyticsIDs?.length > 0 && GoogleAnalyticsIDs.map((ID) =>
             <React.Fragment>
                 <script rel="preconnect" async src={`https://www.googletagmanager.com/gtag/js?id=${ID}`} />
@@ -82,7 +80,6 @@ const Base = ({ children, meta }) => {
                     `
                 }} />
             </React.Fragment>)}
-
             {FacebookPixelIDs?.length > 0 && FacebookPixelIDs.map((ID) =>
             <React.Fragment>
                 <script dangerouslySetInnerHTML={{

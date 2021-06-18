@@ -53,12 +53,12 @@
       },
       {
         "label": "Speakers",
-        "url": "https://www.amrita.edu/aisg/speaker/"
+        "url": "https://www.amrita.edu/aisg/speakers/"
       }
     ]
   },
   "analytics": {
-    "googleAnalyticsIDs": [
+    "GoogleAnalyticsIDs": [
       "AW-588095161"
     ],
     "FacebookPixelIDs": [
