@@ -29,6 +29,18 @@ const RegistrationCompletePage = () => {
                         scrolling="no" frameBorder="0"
                         width="1" height="1"
                     />
+                    <script dangerouslySetInnerHTML={`
+                        function gtag_report_conversion(url) {
+                            var callback = function () {
+                                if (typeof(url) != 'undefined') { window.location = url; }
+                            };
+                            gtag('event', 'conversion', {
+                                'send_to': 'AW-588095161/MfvkCMKp4b8CELm9tpgC',
+                                'event_callback': callback
+                            });
+                            return false;
+                        }
+                    `} />
                     <a target="_blank" className="plain-link text-decoration-none mb-5" href="https://events.amrita.edu/">
                         <FormButton
                             text="Open Dashboard"
