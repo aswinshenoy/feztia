@@ -103,7 +103,6 @@ const Base = ({ children, meta }) => {
                     />
                 </noscript>
             </React.Fragment>)}
-
         </Head>
         <div className="app">
             <ThemeProvider theme={theme}>

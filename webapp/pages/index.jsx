@@ -12,22 +12,12 @@ const eventID = process.env.eventID;
 const RegisterPage = () => {
 
     return <ViewAuthenticator
-        renderAdmin={() =>
-            <Base meta={{ title: 'Dashboard' }}>
-                <DashboardPage />
-            </Base>}
-        renderJudge={() =>
-            <Base meta={{ title: 'Dashboard' }}>
-                <DashboardPage />
-            </Base>
-        }
+        renderAdmin={() => <DashboardPage />}
+        renderJudge={() => <DashboardPage />}
         renderAuth={(userInfo) => !userInfo?.isProfileComplete ?
         <Base meta={{ title: 'Complete Your Profile' }}>
             <OnBoarding />
-        </Base> :
-        <Base meta={{ title: 'Dashboard' }}>
-            <DashboardPage />
-        </Base>}
+        </Base> : <DashboardPage />}
         renderPublic={() =>
         <Base meta={{ title: 'Registration' }}>
             <RegistrationForm />
