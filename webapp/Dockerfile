@@ -15,7 +15,7 @@
 #
 #EXPOSE 80
 #CMD yarn start
-FROM node:alpine
+FROM node:16-alpine
 
 RUN apk add build-base zlib-dev autoconf automake nasm libtool libpng-dev jpeg-dev g++ gcc libgcc libstdc++ linux-headers make python3
 

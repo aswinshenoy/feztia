@@ -1,18 +1,18 @@
 services:
-  #    db:
-  #        container_name: feztia_pgdb
-  #        restart: always
-  #        image: postgres
-  #        networks:
-  #          - main
-  #        ports:
-  #          - 5432
-  #        environment:
-  #          - POSTGRES_DB
-  #          - POSTGRES_USER
-  #          - POSTGRES_PASSWORD
-  ##        volumes:
-  ##          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+  db:
+      container_name: feztia_pgdb
+      restart: always
+      image: postgres
+      networks:
+        - main
+      ports:
+        - 5432
+      environment:
+        - POSTGRES_DB
+        - POSTGRES_USER
+        - POSTGRES_PASSWORD
+  #        volumes:
+  #          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
   redis:
     container_name: feztia_redis
     image: "redis:6.0-rc3-buster"
@@ -35,7 +35,7 @@ services:
       context: framework
       dockerfile: Dockerfile
     links:
-      #          - db:db
+      - db:db
       - redis:redis
     environment:
       - SECRET_KEY=$FRAMEWORK_SECRET_KEY
@@ -46,13 +46,10 @@ services:
       - POSTGRES_DB
       - POSTGRES_USER
       - POSTGRES_PASSWORD
-      - POSTGRES_HOST
+      - POSTGRES_HOST=db
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY
       - S3_STORAGE_BUCKET_NAME
-      - ALERTBOX_USERNAME
-      - ALERTBOX_PASSWORD
-      - ALERTBOX_SENDER_ID
       # Redis
       - TASK_QUEUE_REDIS_HOST=redis
 
@@ -61,6 +58,9 @@ services:
 
   huey:
     container_name: feztia_huey
+    build:
+      context: framework
+      dockerfile: Dockerfile
     image: feztia_framework
     command: python manage.py run_huey
     volumes:
@@ -69,7 +69,7 @@ services:
     networks:
       - main
     links:
-      #          - db:db
+      - db:db
       - redis:redis
     environment:
 
@@ -77,13 +77,10 @@ services:
       - POSTGRES_DB
       - POSTGRES_USER
       - POSTGRES_PASSWORD
-      - POSTGRES_HOST
+      - POSTGRES_HOST=db
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY
       - S3_STORAGE_BUCKET_NAME
-      - ALERTBOX_USERNAME
-      - ALERTBOX_PASSWORD
-      - ALERTBOX_SENDER_ID
       # Redis
       - TASK_QUEUE_REDIS_HOST=redis
 
@@ -109,19 +106,19 @@ services:
     command:
       "npm run start"
 
-#    nginx:
-#        container_name: feztia_nginx
-#        image: nginx:0.2
-#        build:
-#          context: nginx
-#          dockerfile: Dockerfile
-#        ports:
-#          - 80:80
-#        depends_on:
-#          - framework
-#          - webapp
-#        networks:
-#          - main
-#        command: [nginx-debug, '-g', 'daemon off;']
+  nginx:
+      container_name: feztia_nginx
+      image: nginx
+      build:
+        context: nginx
+        dockerfile: Dockerfile
+      ports:
+        - 80:80
+      depends_on:
+        - framework
+        - webapp
+      networks:
+        - main
+      command: [nginx-debug, '-g', 'daemon off;']
 networks:
   main:
